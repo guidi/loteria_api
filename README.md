@@ -1,7 +1,7 @@
 
 # API da loteria da caixa
 
-API simples que obtém os resultados das loterias da caixa.
+API simples e GRATUITA que obtém os resultados das loterias da caixa.
 
 Compatível com as seguintes loterias: "megasena", "quina", "lotofacil", "lotomania", "duplasena", "timemania", "diadesorte", "federal", "loteca", "supersete", "maismilionaria"
 
@@ -15,7 +15,7 @@ Exemplo para obter o concurso 2000 da megasena: https://api.guidi.dev.br/loteria
 FAQ:
 
 Quando é feita a carga de dados?
-- Não tem carga de dados, os dados são obtidos online, exceto se já existirem no banco de dados da API.
+- Não tem carga de dados, os dados são obtidos online, exceto se já existirem no banco de dados da API, ou seja, no momento que o concurso for publicado no site da caixa, vai estar disponível na API.
 
 Como faço para rodar o código na minha máquina?
 - Faça o git clone, abra a solution no visual studio (tem que ter o .NET 7), altere a configuração do banco de dados no appsettings.json e execute o projeto.
@@ -29,4 +29,26 @@ Onde está hospedada a API?
 Tem algum limite de requests nessa API?
 - Por enquanto não, somente se eu ver que estão abusando, aí eu limito no api gateway.
 
+Qual a stack do projeto?
+- Net Core 7 + Serilog + Polly + Entity Framework Core c/ Code First + MYSQL
+- Docker
+- Kong como API gateway
+- Github Actions + WatchTower para CI/CD
 
+Por que não escreveu testes para este projeto?
+- Não vi necessidade pra esse caso.
+
+Onde fica a imagem docker deste projeto?
+- https://hub.docker.com/r/guidi/loteria-api, use sempre a versão mais recente.
+
+Como faço para executar essa imagem?
+- Execute o comando abaixo, lembre de definir na variável de ambiente a connection string do seu banco de dados e de usar a tag mais recente do container.
+
+```
+sudo docker run -d \
+	 -p 7047:7047 \
+	 -p 5190:5190 \
+	 -e "ConnectionStrings:DefaultConnection"="Server=loteria_db-1;Port=3306;Database=loteria;Uid=loteria;Pwd=loteria;SslMode=Required" \
+     --name loteria-api \
+     guidi/loteria-api:1.4
+```     
