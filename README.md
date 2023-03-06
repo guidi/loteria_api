@@ -33,6 +33,7 @@ Qual a stack do projeto?
 - Net Core 7 + Serilog + Polly + Entity Framework Core c/ Code First + MYSQL
 - Docker
 - Kong como API gateway
+- UptimeRobot para Health Check
 - Github Actions + WatchTower para CI/CD
 
 Por que não escreveu testes para este projeto?
