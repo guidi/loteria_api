@@ -30,6 +30,18 @@ namespace Loteria.API.Controllers
         /// <param name="CodigoLoteria"></param>
         /// <param name="Concurso"></param>
         /// <returns></returns>
+        [HttpGet("healthcheck")]
+        public IActionResult HealtCheck()
+        {
+            return Ok("Tudo certo :D");
+        }
+
+        /// <summary>
+        /// Consulta um concurso pelo código da loteria e número do concurso
+        /// </summary>
+        /// <param name="CodigoLoteria"></param>
+        /// <param name="Concurso"></param>
+        /// <returns></returns>
         [HttpGet("{CodigoLoteria}/{Concurso}")]
         public async Task<IActionResult> Get(String CodigoLoteria, String Concurso)
         {
