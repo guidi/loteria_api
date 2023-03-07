@@ -11,6 +11,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        
+      - name: Get latest commit hash
+        id: get_commit_hash
+        run: echo "::set-output name=commit_hash::$(git rev-parse --short HEAD)"        
 
       - name: Build Docker image
         uses: docker/build-push-action@v2
@@ -32,4 +36,4 @@ jobs:
           context: ./src
           dockerfile: Dockerfile
           push: true
-          tags: guidi/loteria-api:latest
+          tags: guidi/loteria-api:${{ steps.get_commit_hash.outputs.commit_hash }}
