@@ -1,5 +1,5 @@
 
-# API da loteria da caixa
+# API de resultados das loterias da caixa
 
 [![Build and Publish Docker Image](https://github.com/guidi/loteria_api/actions/workflows/docker-image.yml/badge.svg)](https://github.com/guidi/loteria_api/actions/workflows/docker-image.yml)
 
