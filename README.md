@@ -1,6 +1,9 @@
 
 # API da loteria da caixa
 
+[![Build and Publish Docker Image](https://github.com/guidi/loteria_api/blob/main/.github/workflows/docker-image.yml/badge.svg)](https://github.com/guidi/loteria_api/blob/main/.github/workflows/docker-image.yml)
+
+
 API simples e GRATUITA que obtém os resultados das loterias da caixa.
 
 Compatível com as seguintes loterias: "megasena", "quina", "lotofacil", "lotomania", "duplasena", "timemania", "diadesorte", "federal", "loteca", "supersete", "maismilionaria"
