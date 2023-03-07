@@ -5,7 +5,7 @@ API simples e GRATUITA que obtém os resultados das loterias da caixa.
 
 Compatível com as seguintes loterias: "megasena", "quina", "lotofacil", "lotomania", "duplasena", "timemania", "diadesorte", "federal", "loteca", "supersete", "maismilionaria"
 
-Caso queira apenas utilizar a API ela está disponível no endereço: https://api.guidi.dev.br/loteria, para utilizar basta fazer um GET na url passando o código da loteria e o concurso.
+Caso queira apenas utilizar a API, ela está disponível no endereço: https://api.guidi.dev.br/loteria, para utilizar basta fazer um GET na url, passando o código da loteria e o concurso.
 
 Exemplo para obter o último concurso da megasena: https://api.guidi.dev.br/loteria/megasena/ultimo
 
@@ -15,7 +15,7 @@ Exemplo para obter o concurso 2000 da megasena: https://api.guidi.dev.br/loteria
 FAQ:
 
 Quando é feita a carga de dados?
-- Não tem carga de dados, os dados são obtidos online, exceto se já existirem no banco de dados da API, ou seja, no momento que o concurso for publicado no site da caixa, vai estar disponível na API.
+- Não tem carga de dados, os dados são obtidos online, exceto se já existirem no banco de dados da API, ou seja, no momento em que o concurso for publicado no site da caixa, ele também vai estar disponível na API.
 
 Como faço para rodar o código na minha máquina?
 - Faça o git clone, abra a solution no visual studio (tem que ter o .NET 7), altere a configuração do banco de dados no appsettings.json e execute o projeto.
