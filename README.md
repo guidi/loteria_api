@@ -51,5 +51,5 @@ sudo docker run -d \
 	 -p 5190:5190 \
 	 -e "ConnectionStrings:DefaultConnection"="Server=loteria_db-1;Port=3306;Database=loteria;Uid=loteria;Pwd=loteria;SslMode=Required" \
      --name loteria-api \
-     guidi/loteria-api:1.4
+     guidi/loteria-api:1.5
 ```     
