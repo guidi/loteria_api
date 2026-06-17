@@ -14,6 +14,41 @@ Exemplo para obter o último concurso da megasena: https://api.guidi.dev.br/lote
 
 Exemplo para obter o concurso 2000 da megasena: https://api.guidi.dev.br/loteria/megasena/2000
 
+## Snapshot da base
+
+Medição realizada em `2026-06-17` no banco de dados em produção.
+
+Quantidade de resultados por loteria:
+
+- `megasena`: `2993`
+- `quina`: `6996`
+- `federal`: `6037`
+- `lotofacil`: `3655`
+- `duplasena`: `2941`
+- `lotomania`: `2908`
+- `timemania`: `2364`
+- `loteca`: `1240`
+- `diadesorte`: `1198`
+- `supersete`: `832`
+- `maismilionaria`: `343`
+
+Dezenas que mais saíram na Mega-Sena nessa medição:
+
+- `10`: `352` vezes
+- `53`: `342`
+- `37`: `325`
+- `05`: `324`
+- `34`: `321`
+- `33`: `320`
+- `32`: `319`
+- `38`: `319`
+- `27`: `318`
+- `46`: `317`
+- `04`: `316`
+- `17`: `316`
+- `42`: `316`
+- `30`: `315`
+- `35`: `315`
 
 FAQ:
 
