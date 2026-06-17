@@ -50,6 +50,30 @@ Dezenas que mais saíram na Mega-Sena nessa medição:
 - `30`: `315`
 - `35`: `315`
 
+Dezenas que mais saíram na Quina nessa medição:
+
+- `04`: `502` vezes
+- `26`: `487`
+- `52`: `485`
+- `44`: `477`
+- `49`: `476`
+- `31`: `470`
+- `16`: `467`
+- `29`: `467`
+- `39`: `466`
+- `05`: `465`
+- `56`: `465`
+- `42`: `463`
+- `53`: `463`
+- `15`: `461`
+- `09`: `460`
+
+Métricas da Federal nessa medição:
+
+- `6037` resultados cadastrados
+- `30185` bilhetes representados na base
+- cada concurso da `federal` armazena `5` bilhetes de `6` dígitos
+
 FAQ:
 
 Quando é feita a carga de dados?
