@@ -1,0 +1,10 @@
+**/bin
+**/obj
+**/.vs
+**/.vscode
+**/*.user
+**/.git
+**/.github
+**/node_modules
+README.md
+LICENSE

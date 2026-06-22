@@ -37,13 +37,11 @@ namespace Loteria.API
             builder.Host.UseSerilog(Log.Logger);
             builder.Services.AddHttpClient<ILoteriaService, LoteriaService>();
             var app = builder.Build();
-            if (app.Environment.IsDevelopment())
-            {
-                app.UseSwagger();
-                app.UseSwaggerUI();
-            }
 
-            app.UseHttpsRedirection();
+            app.UseSwagger();
+            app.UseSwaggerUI();
+
+            // app.UseHttpsRedirection();
 
             app.UseAuthorization();
 
@@ -53,8 +51,15 @@ namespace Loteria.API
             {
                 var services = scope.ServiceProvider;
 
-                var context = services.GetRequiredService<LoteriaContext>();
-                context.Database.Migrate();
+                try
+                {
+                    var context = services.GetRequiredService<LoteriaContext>();
+                    context.Database.Migrate();
+                }
+                catch (Exception ex)
+                {
+                    Log.Error(ex, "Falha ao aplicar migrations no startup");
+                }
             }
 
             app.Run();
