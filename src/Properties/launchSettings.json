@@ -5,7 +5,9 @@
       "launchBrowser": true,
       "launchUrl": "swagger",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "SEQ_URL": "http://localhost:5341",
+        "SEQ_API_KEY": ""
       },
       "dotnetRunMessages": true,
       "applicationUrl": "http://localhost:5190"
@@ -15,7 +17,9 @@
       "launchBrowser": true,
       "launchUrl": "swagger",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "SEQ_URL": "http://localhost:5341",
+        "SEQ_API_KEY": ""
       },
       "dotnetRunMessages": true,
       "applicationUrl": "https://localhost:7047;http://localhost:5190"

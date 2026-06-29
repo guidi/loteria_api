@@ -80,7 +80,7 @@ Quando é feita a carga de dados?
 - Não tem carga de dados, os dados são obtidos online, exceto se já existirem no banco de dados da API, ou seja, no momento em que o concurso for publicado no site da caixa, ele também vai estar disponível na API.
 
 Como faço para rodar o código na minha máquina?
-- Faça o git clone, abra a solution no visual studio (tem que ter o .NET 7), altere a configuração do banco de dados no appsettings.json e execute o projeto.
+- Faça o git clone, abra a solution no visual studio (tem que ter o .NET 10 SDK), altere a configuração do banco de dados no appsettings.json e execute o projeto.
 
 Você aceita pull request?
 - Sim, fique a vontade para enviar.
@@ -92,7 +92,7 @@ Tem algum limite de requests nessa API?
 - Por enquanto não, somente se eu ver que estão abusando, aí eu limito no api gateway.
 
 Qual a stack do projeto?
-- Net Core 7 + Serilog + Polly + Entity Framework Core c/ Code First + MYSQL
+- Net 10 + Serilog + Seq + Polly + Entity Framework Core c/ Code First + MYSQL
 - Docker
 - Kong como API gateway
 - UptimeRobot para Health Check
@@ -105,13 +105,17 @@ Onde fica a imagem docker deste projeto?
 - https://hub.docker.com/r/guidi/loteria-api, use sempre a versão mais recente.
 
 Como faço para executar essa imagem?
-- Execute o comando abaixo, lembre de definir na variável de ambiente a connection string do seu banco de dados e de usar a tag mais recente do container.
+- Execute o comando abaixo, lembre de definir na variável de ambiente a connection string do seu banco de dados, `SEQ_URL` caso queira enviar logs para o Seq, e de usar a tag mais recente do container.
 
 ```
 sudo docker run -d \
 	 -p 7047:7047 \
 	 -p 5190:5190 \
 	 -e "ConnectionStrings:DefaultConnection"="Server=loteria_db-1;Port=3306;Database=loteria;Uid=loteria;Pwd=loteria;SslMode=Required" \
+     -e "SEQ_URL"="http://seq:5341" \
+     -e "SEQ_API_KEY"="" \
      --name loteria-api \
      guidi/loteria-api:1.5
-```     
+```
+
+Se `SEQ_URL` nao estiver configurada, a aplicacao continua logando apenas no console.

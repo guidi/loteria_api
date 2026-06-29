@@ -20,7 +20,8 @@ namespace Loteria.API
 
             builder.Services.AddDbContext<LoteriaContext>(opt =>
             {
-                var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+                var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
+                    ?? throw new InvalidOperationException("ConnectionStrings:DefaultConnection nao foi configurada.");
 
                 var retryPolicy = Policy.Handle<MySql.Data.MySqlClient.MySqlException>()
                     .WaitAndRetry(new[]
