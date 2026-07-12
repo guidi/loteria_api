@@ -1,7 +1,6 @@
 using Serilog;
 using Serilog.Enrichers.Span;
 using Serilog.Events;
-using Serilog.Exceptions;
 using Serilog.Filters;
 
 namespace Loteria.API.Extension
@@ -19,7 +18,6 @@ namespace Loteria.API.Extension
                 .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
                 .MinimumLevel.Override("Microsoft.AspNetCore", LogEventLevel.Warning)
                 .Enrich.FromLogContext()
-                .Enrich.WithExceptionDetails()
                 .Enrich.WithMachineName()
                 .Enrich.WithSpan()
                 .Enrich.WithCorrelationId()

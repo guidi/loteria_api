@@ -4,6 +4,6 @@ namespace Loteria.API.Service
 {
     public interface ILoteriaService
     {
-        Task<LoteriaDTO> ObterPelaLoteriaEConcurso(String Loteria, String Concurso);
+        Task<LoteriaDTO?> ObterPelaLoteriaEConcurso(String Loteria, String Concurso);
     }
 }
