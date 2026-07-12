@@ -14,6 +14,15 @@ Exemplo para obter o último concurso da megasena: https://api.guidi.dev.br/lote
 
 Exemplo para obter o concurso 2000 da megasena: https://api.guidi.dev.br/loteria/megasena/2000
 
+## Atualização - 12/07/2026
+
+Devido ao aumento no volume de scrapers realizando consultas automatizadas, foram aplicadas as seguintes medidas de proteção:
+
+- Bloqueio de acessos originados de endereços IP fora do Brasil.
+- Aplicação de rate limit nas consultas aos resultados das loterias.
+
+Essas medidas visam preservar a disponibilidade da API para os usuários legítimos e garantir a estabilidade do serviço.
+
 ## Snapshot da base
 
 Medição realizada em `2026-06-17` no banco de dados em produção.
@@ -89,7 +98,7 @@ Onde está hospedada a API?
 - Digital Ocean
 
 Tem algum limite de requests nessa API?
-- Por enquanto não, somente se eu ver que estão abusando, aí eu limito no api gateway.
+- Sim. Atualmente a API aplica rate limit nas consultas aos resultados das loterias e aceita apenas requisições originadas de endereços IP do Brasil.
 
 Qual a stack do projeto?
 - Net 10 + Serilog + Seq + Polly + Entity Framework Core c/ Code First + MYSQL
@@ -111,11 +120,13 @@ Como faço para executar essa imagem?
 sudo docker run -d \
 	 -p 7047:7047 \
 	 -p 5190:5190 \
-	 -e "ConnectionStrings:DefaultConnection"="Server=loteria_db-1;Port=3306;Database=loteria;Uid=loteria;Pwd=loteria;SslMode=Required" \
+     -e "ConnectionStrings:DefaultConnection"="Server=loteria_db-1;Port=3306;Database=loteria;Uid=loteria;Pwd=loteria;SslMode=Required" \
      -e "SEQ_URL"="http://seq:5341" \
      -e "SEQ_API_KEY"="" \
+     -e "FORWARDED_NETWORKS"="172.18.0.0/16,172.19.0.0/16" \
      --name loteria-api \
      guidi/loteria-api:1.5
 ```
 
 Se `SEQ_URL` nao estiver configurada, a aplicacao continua logando apenas no console.
+Atrás de Cloudflare ou proxy reverso, `FORWARDED_NETWORKS` deve conter as redes confiáveis dos proxies para que o IP real do cliente seja resolvido corretamente.
